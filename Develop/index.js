@@ -3,8 +3,26 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const { title } = require('process');
 
+// TODO: create generate README function that is destructured 
+const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions }) =>
+    `# ${title}
+## Description 
+    ${description}
+## Table of Contents
+## Installation
+    ${installation}
+## Usage
+    ${usage}
+## License
+    ${license}
+## How to Contribute
+    ${contribution}
+## Tests
+    ${test}
+## Questions
+    ${questions}`;
 
-// TODO: Change all the questions to be relevant to project
+// The array of questions that will be used with inquirer 
 const questions = [
     {
       type: 'input',
@@ -14,7 +32,7 @@ const questions = [
     {
       type: 'input',
       name: 'description',
-      message: 'What is the title of your project?',
+      message: 'Enter a description for your project.',
     },
     {
       type: 'input',
@@ -23,8 +41,9 @@ const questions = [
     },
     {
       type: 'input',
-      message: 'Include instructions on how to use your application.',
       name: 'usage',
+      message: 'Include instructions on how to use your application.',
+      
     },
     {
       type: 'list',
@@ -34,27 +53,26 @@ const questions = [
     },
     {
       type: 'input',
-      message: 'What are your contribution guidelines?',
       name: 'contribution',
+      message: 'What are your contribution guidelines?',
     },
     {
       type: 'input',
-      message: 'Share test instructions',
       name: 'test',
+      message: 'Share test instructions',
     },
     {
       type: 'input',
+      name: 'questions',
       message: 'Enter your GitHub username',
-      name: 'questions',
     },
-    {
-      type: 'input',
-      message: 'Enter your email',
-      name: 'questions',
-    },
+    // {
+    //   type: 'input',
+    //   name: 'questions',
+    //   message: 'Enter your email',
+    // },
   ];
 
-// TODO: create generate README function that is destructured 
 
 inquirer
   .prompt(questions)
@@ -63,16 +81,16 @@ inquirer
 // TODO: Create a function to write README file
 // function writeToFile( 'README.md', data) {}
 
-.then((data) => {
+.then((answers) => {
     // const readme = `${data.name.toLowerCase().split(' ').join('')}.json`;
 
     // fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) =>
     //   err ? console.log(err) : console.log('Success!')
     // );
 
-    fs.writeFile('README.md', JSON.stringify(data), (err) => {
+    fs.writeFile('README.md', generateREADME(answers), (err) => {
         if (err) throw err;
-        console.log('The data to append was appended to file!');
+        console.log('The README was created!');
     })
 
   });
