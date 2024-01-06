@@ -17,4 +17,5 @@ function generateMarkdown(data) {
 `;
 }
 
+// This allows us to export this file and import it into index.js
 module.exports = generateMarkdown;
