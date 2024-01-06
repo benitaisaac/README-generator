@@ -4,7 +4,7 @@ const inquirer = require('inquirer');
 const { title } = require('process');
 
 // TODO: create generate README function that is destructured 
-const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions }) =>
+const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions1, questions2}) =>
     `# ${title}
 ## Description 
     ${description}
@@ -20,7 +20,8 @@ const generateREADME = ({ title, description, installation, usage, license, cont
 ## Tests
     ${test}
 ## Questions
-    ${questions}`;
+    Github profile: ${questions1}
+    Contact me at ${questions2} if you have any other questions`;
 
 // The array of questions that will be used with inquirer 
 const questions = [
@@ -63,14 +64,14 @@ const questions = [
     },
     {
       type: 'input',
-      name: 'questions',
+      name: 'questions1',
       message: 'Enter your GitHub username',
     },
-    // {
-    //   type: 'input',
-    //   name: 'questions',
-    //   message: 'Enter your email',
-    // },
+    {
+      type: 'input',
+      name: 'questions2',
+      message: 'Enter your email',
+    },
   ];
 
 
@@ -83,10 +84,6 @@ inquirer
 
 .then((answers) => {
     // const readme = `${data.name.toLowerCase().split(' ').join('')}.json`;
-
-    // fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) =>
-    //   err ? console.log(err) : console.log('Success!')
-    // );
 
     fs.writeFile('README.md', generateREADME(answers), (err) => {
         if (err) throw err;
