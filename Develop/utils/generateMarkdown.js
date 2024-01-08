@@ -1,11 +1,19 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 // if there is a license, return a string with the link that I need
-function renderLicenseBadge(license) {
-if(license){
-  return (`[![License: ${license}](https://img.shields.io/badge/License-${license}-yellow.svg)](https://opensource.org/licenses/${license})`)
-} else {
-  return(" ")
+function renderLicenseBadge(license){ 
+switch (license) {
+  case 'MIT':
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+  
+  case 'GPL v3':
+    return `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`
+
+  case 'CC0-1.0':
+    return `[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`
+  
+  case 'MPL 2.0':
+    return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
 }
 }
 
