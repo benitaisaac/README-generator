@@ -20,7 +20,21 @@ switch (license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  switch (license) {
+    case 'MIT':
+      return `https://opensource.org/license/mit/`
+    
+    case 'GPL v3':
+      return `https://opensource.org/license/gpl-3-0/`
+  
+    case 'CC0-1.0':
+      return `https://creativecommons.org/publicdomain/zero/1.0/deed.en`
+    
+    case 'MPL 2.0':
+      return `https://opensource.org/license/mpl-1-1/`
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -37,5 +51,6 @@ function generateMarkdown(data) {
 // This allows us to export this file and import it into index.js
 module.exports = {
   generateMarkdown, 
-  renderLicenseBadge
+  renderLicenseBadge,
+  renderLicenseLink,
 };

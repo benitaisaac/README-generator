@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const { title } = require('process');
 
-const {renderLicenseBadge} = require('./utils/generateMarkdown.js');
+const {renderLicenseBadge, renderLicenseLink} = require('./utils/generateMarkdown.js');
 
 // create generate README function that is destructured 
 const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions1, questions2}) =>
@@ -23,6 +23,9 @@ const generateREADME = ({ title, description, installation, usage, license, cont
 ## License
     ${license}
 ${renderLicenseBadge(license)}
+    
+    View the license link here: 
+${renderLicenseLink(license)}
 ## How to Contribute
     ${contribution}
 ## Tests
