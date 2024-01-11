@@ -54,7 +54,8 @@ const generateREADME = ({ title, description, installation, usage, license, cont
 // GitHub username is added to the section of the README entitled Questions, with a link to my GitHub profile
 // Email addres is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
     `# ${title}
-## Description 
+  ${renderLicenseBadge(license)}
+    ## Description 
     ${description}
 ## Table of Contents
 - [Installation](#installation)
@@ -69,7 +70,6 @@ const generateREADME = ({ title, description, installation, usage, license, cont
     ${usage}
 ## License
     ${license}
-${renderLicenseBadge(license)}
     
 View the license link here: ${renderLicenseLink(license)}
 
