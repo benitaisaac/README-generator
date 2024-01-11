@@ -4,36 +4,6 @@ const inquirer = require('inquirer');
 const { title } = require('process');
 
 const {renderLicenseBadge, renderLicenseLink, generateREADME} = require('./utils/generateMarkdown.js');
-
-// create generate README function that is destructured 
-// const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions1, questions2}) =>
-// User input project title is the title of the README
-// Other user information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-// TODO: add link to github profile 
-// GitHub username is added to the section of the README entitled Questions, with a link to my GitHub profile
-// Email addres is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-//     `# ${title}
-// ## Description 
-//     ${description}
-// ## Table of Contents
-// ## Installation
-//     ${installation}
-// ## Usage
-//     ${usage}
-// ## License
-//     ${license}
-// ${renderLicenseBadge(license)}
-    
-//     View the license link here: 
-// ${renderLicenseLink(license)}
-// ## How to Contribute
-//     ${contribution}
-// ## Tests
-//     ${test}
-// ## Questions
-//   Contact me at ${questions2} if you have any other questions. Github: 
-// [${questions1}](${questions1})
-//     `;
   
 // The array of questions that will be used with inquirer 
 const questions = [
