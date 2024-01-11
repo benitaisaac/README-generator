@@ -41,16 +41,50 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-  ${renderLicenseBadge(data.license)}
-`;
+// function generateMarkdown(data) {
+//   return `# ${data.title}
+//   ${renderLicenseBadge(data.license)}
+// `;
+// }
 
-}
+const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions1, questions2}) =>
+// User input project title is the title of the README
+// Other user information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
+// TODO: add link to github profile 
+// GitHub username is added to the section of the README entitled Questions, with a link to my GitHub profile
+// Email addres is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+    `# ${title}
+## Description 
+    ${description}
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Tests](#tests)
+- [How to Contribute](#contributions)
+- [Questions](#questions)
+## Installation
+    ${installation}
+## Usage
+    ${usage}
+## License
+    ${license}
+${renderLicenseBadge(license)}
+    
+View the license link here: ${renderLicenseLink(license)}
+
+## Contributions
+    ${contribution}
+## Tests
+    ${test}
+## Questions
+  Contact me at ${questions2} if you have any other questions. Github: 
+[${questions1}](${questions1})
+    `;
 
 // This allows us to export this file and import it into index.js
 module.exports = {
-  generateMarkdown, 
+  generateREADME, 
   renderLicenseBadge,
   renderLicenseLink,
 };
