@@ -42,7 +42,7 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
+// Function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license){
   if (license) {
@@ -53,11 +53,6 @@ function renderLicenseSection(license){
 }
 
 const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions1, questions2}) =>
-// User input project title is the title of the README
-// Other user information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-// TODO: add link to github profile 
-// GitHub username is added to the section of the README entitled Questions, with a link to my GitHub profile
-// Email addres is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
     `# ${title}
   ${renderLicenseBadge(license)}
 
