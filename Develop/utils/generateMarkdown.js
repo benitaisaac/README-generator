@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+//Creates a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 // if there is a license, return a string with the link that I need
 function renderLicenseBadge(license){ 
@@ -21,7 +21,7 @@ switch (license) {
 }
 
 
-// TODO: Create a function that returns the license link
+// A function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   switch (license) {
@@ -45,15 +45,12 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license){
-  if (license == 'MIT' || license == 'GPL v3' || license == 'CCO-1.0' || license == 'MPL 2.0') {
+  if (license) {
     return `The license for this project is ${license}`
   } if (license == 'none') {
     return ' '
   }
 }
-//For the destructured: 
-//The license you used is ${license}.
-// View the license link here: ${renderLicenseLink(license)} 
 
 const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions1, questions2}) =>
 // User input project title is the title of the README
@@ -79,6 +76,7 @@ const generateREADME = ({ title, description, installation, usage, license, cont
     ${usage}
 ## License
 ${renderLicenseSection(license)}
+${renderLicenseLink(license)}
 
 ## Contributions
     ${contribution}
