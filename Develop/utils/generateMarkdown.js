@@ -14,7 +14,10 @@ switch (license) {
   
   case 'MPL 2.0':
     return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
-}
+  
+  case 'none':
+    return `' '`
+  }
 }
 
 
@@ -33,19 +36,24 @@ function renderLicenseLink(license) {
     
     case 'MPL 2.0':
       return `https://opensource.org/license/mpl-1-1/`
+
+    case 'none':
+      return `' '`
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-// function generateMarkdown(data) {
-//   return `# ${data.title}
-//   ${renderLicenseBadge(data.license)}
-// `;
-// }
+function renderLicenseSection(license){
+  if (license == 'MIT' || license == 'GPL v3' || license == 'CCO-1.0' || license == 'MPL 2.0') {
+    return `The license for this project is ${license}`
+  } if (license == 'none') {
+    return ' '
+  }
+}
+//For the destructured: 
+//The license you used is ${license}.
+// View the license link here: ${renderLicenseLink(license)} 
 
 const generateREADME = ({ title, description, installation, usage, license, contribution, test, questions1, questions2}) =>
 // User input project title is the title of the README
@@ -55,7 +63,8 @@ const generateREADME = ({ title, description, installation, usage, license, cont
 // Email addres is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
     `# ${title}
   ${renderLicenseBadge(license)}
-    ## Description 
+
+## Description 
     ${description}
 ## Table of Contents
 - [Installation](#installation)
@@ -69,9 +78,7 @@ const generateREADME = ({ title, description, installation, usage, license, cont
 ## Usage
     ${usage}
 ## License
-    ${license}
-    
-View the license link here: ${renderLicenseLink(license)}
+${renderLicenseSection(license)}
 
 ## Contributions
     ${contribution}
