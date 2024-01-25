@@ -63,7 +63,7 @@ inquirer
 
 // Function to create the README
 .then((answers) => {
-    fs.writeFile('README.md', generateREADME(answers), (err) => {
+    fs.writeFile('GeneratedREADME.md', generateREADME(answers), (err) => {
         if (err) throw err;
         console.log('The README was created!');
     })
